@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edukasi Sampah</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #e8f5e9;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { color: #2e7d32; }
+    .button {
+      display: block;
+      margin: 10px auto;
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #388e3c;
+    }
+    .content {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jenis Sampah yang Kamu Buang?</h1>
+  
+  <button class="button" onclick="pilih('organik')">Organik</button>
+  <button class="button" onclick="pilih('nonorganik')">Non Organik</button>
+  
+  <div class="content" id="konten"></div>
+
+  <script>
+    function pilih(jenis) {
+      const konten = document.getElementById("konten");
+      konten.innerHTML = "";
+
+      if (jenis === "organik") {
+        konten.innerHTML = `
+          <h2>Organik</h2>
+          <p>Kamu membuang sampah organik. Pilih jenisnya:</p>
+          <button class="button" onclick="organik('basah')">Basah</button>
+          <button class="button" onclick="organik('kering')">Kering</button>
+        `;
+      } else if (jenis === "nonorganik") {
+        konten.innerHTML = `
+          <h2>Non Organik</h2>
+          <p>Kamu membuang sampah non organik. Pilih jenisnya:</p>
+          <button class="button" onclick="nonorganik('plastik')">Plastik</button>
+          <button class="button" onclick="nonorganik('kaca')">Kaca</button>
+          <button class="button" onclick="nonorganik('logam')">Logam</button>
+        `;
+      }
+    }
+
+    function organik(sub) {
+      const konten = document.getElementById("konten");
+      konten.innerHTML = `
+        <h2>Sampah Organik - ${sub}</h2>
+        <p>Sampah organik ${sub} sebaiknya tidak dibuang, melainkan dimanfaatkan menjadi pupuk kompos!</p>
+        <h3>Tutorial Membuat Pupuk:</h3>
+        <ol>
+          <li>Kumpulkan sampah organik ${sub} seperti sisa sayur, daun, nasi, dll</li>
+          <li>Masukkan ke dalam ember tertutup</li>
+          <li>Tambahkan tanah dan sedikit air</li>
+          <li>Diamkan 2 minggu, aduk setiap 2 hari</li>
+          <li>Jadi deh pupuk kompos!</li>
+        </ol>
+        <p>Terima kasih telah peduli lingkungan!</p>
+      `;
+    }
+
+    function nonorganik(sub) {
+      let edukasi = "";
+      if (sub === "plastik") {
+        edukasi = "Plastik bisa didaur ulang menjadi tas, paving block, hingga bahan bangunan.";
+      } else if (sub === "kaca") {
+        edukasi = "Kaca dapat dilebur kembali untuk membuat botol atau vas bunga.";
+      } else if (sub === "logam") {
+        edukasi = "Logam bisa dilebur menjadi spare part kendaraan atau alat rumah tangga.";
+      }
+
+      const konten = document.getElementById("konten");
+      konten.innerHTML = `
+        <h2>Sampah Non Organik - ${sub}</h2>
+        <p>Jenis ini tetap harus dibuang ke tempat sampah!</p>
+        <h3>Edukasi:</h3>
+        <p>${edukasi}</p>
+        <p>Pastikan sampah ${sub} bersih dan kering sebelum dibuang ya!</p>
+      `;
+    }
+  </script>
+</body>
+</html>
