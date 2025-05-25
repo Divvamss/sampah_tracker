@@ -1,6 +1,6 @@
 const tempatSampah = {
-    lat: -0.9397710,   // Ganti dengan lokasi tempat sampah kamu
-    lng: 100.3696068
+    lat: -0.9447315,   // Ganti dengan lokasi tempat sampah kamu
+    lng: 100.3723832
 };
 
 const map = L.map('map').setView([tempatSampah.lat, tempatSampah.lng], 18);
